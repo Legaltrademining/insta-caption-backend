@@ -1,0 +1,25 @@
+<!-- public/auth-callback.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OAuth Callback</title>
+</head>
+<body>
+  <h2>Processing login...</h2>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+    const error = params.get('error');
+
+    if (code) {
+      // Send code to your backend to exchange for access token
+      console.log("Authorization code:", code);
+
+      // Optional: redirect to dashboard or store auth info
+      // window.location.href = '/dashboard.html';
+    } else if (error) {
+      console.error("OAuth error:", error);
+    }
+  </script>
+</body>
+</html>
